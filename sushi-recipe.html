@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sushi Recipe</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+   
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px; /* base size bigger */
+  margin: 0;
+  padding: 0;
+  background: #fafafa;
+  overflow-y: scroll; /* ensures scrollability */
+}
+
+.recipe-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.recipe-image img {
+  width: 100%;
+  height: 400px;       /* fixed height */
+  object-fit: cover;   /* crops edges but keeps proportions */
+  border-radius: 15px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.recipe-details {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap; /* makes it stack on small screens */
+}
+
+.ingredients, .preparation {
+  flex: 1;
+  min-width: 300px;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 600;
+  border-bottom: 3px solid #ccc;
+  padding-bottom: 8px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.ingredients p {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+ul {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.step {
+  margin-bottom: 20px;
+}
+
+.step h3 {
+  margin: 0 0 8px;
+  font-size: 22px;
+  color: #444;
+}
+
+.step p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+  </style>
+</head>
+<body>
+    <header>
+    <div class="search">
+    <img src="search.png" alt="Search">
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search recipes or foods..." autocomplete="off">
+      <div id="suggestions" class="suggestions"></div>
+    </div>
+  </div>
+    <div class="center-logo">
+        <img src="logo.png" alt="Logo">
+    </div>
+    <a href="menu.html" class="login-btn">Menu</a>
+      <nav>
+        <div class="dropdown">
+          <a href="#">Destinations ▾</a>
+          <div class="dropdown-content">
+            <a href="Malaysia.html">Malaysia</a>
+            <a href="Japan.html">Japan</a>
+            <a href="China.html">China</a>
+            <a href="Vietnam.html">Vietnam</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <a href="#">Recipes ▾</a>
+          <div class="dropdown-content">
+            <div class="dropdown-grid">
+              <div class="country-label">Malaysia</div>
+                <a href="laksa-recipe.html">Laksa</a>
+                <a href="satay-recipe.html">Satay</a>
+                <a href="roti-recipe.html">Roti Canai</a>
+                <a href="ckt-recipe.html">Char Kuey Teow</a>
+                <a href="nasi-recipe.html">Nasi Lemak</a>
+                <a href="kuih-recipe.html">Kuih Seri Muka</a>
+
+              <div class="country-label">Japan</div>
+                <a href="sushi-recipe.html">Sushi</a>
+                <a href="sashimi-recipe.html">Sasahmi</a>
+                <a href="yakitori-recipe.html">Yakitori</a>
+                <a href="mochi-recipe.html">Mochi</a>
+                <a href="onigiri-recipe.html">Onigiri</a>
+                <a href="ramen-recipe.html">Ramen</a>
+
+              <div class="country-label">China</div>
+                <a href="peking-duck-recipe.html">Pecking Duck</a>
+                <a href="kung-pao-recipe.html">Kung Pao Chicken</a>
+                <a href="sweet-sour-pork-recipe.html">Sweet & Sour Pork</a>
+                <a href="hot-pot-recipe.html">Hot Pot</a>
+                <a href="dim-sum-recipe.html">Dim Sum</a>
+                <a href="dumplings-recipe.html">Dumplings</a>
+              
+              <div class="country-label">Vietnam</div>
+                <a href="Cha Ca La Vong recipe.html">Cha Ca La Vong</a>
+                <a href="Bun Cha recipe.html">Bun Cha</a>
+                <a href="Pho Cuon recipe.html">Pho Coun</a>
+                <a href="Pho noodle.html">Pho noodle</a>
+                <a href="Xoi - Vietnam Sticky Rice recipe.html">Xoi</a>
+                <a href="Banh Mi recipe.html">Banh Mi</a>
+            </div>
+          </div>
+        </div>
+        <a href="map.html">Map</a>
+        <a href="Contact Us.html">Contact Us</a>
+        <a href="History Food.html">History Food</a>
+      </nav>
+
+</header>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<div class="recipe-container">
+  <!-- Picture -->
+  <div class="recipe-image">
+    <img src="sushi.jpg" alt="Sushi Picture">
+  </div>
+
+  <!-- Ingredients and Preparation side by side -->
+  <div class="recipe-details">
+    <!-- Ingredients -->
+    <div class="ingredients">
+      <h2>Ingredients</h2>
+      <p>10 Servings</p>
+      <ul>
+        <li>2 cups sushi rice</li>
+        <li>3 tbsp rice vinegar</li>
+        <li>1 tbsp sugar</li>
+        <li>1 tsp salt</li>
+        <li>10 sheets nori (seaweed)</li>
+        <li>200g fresh salmon</li>
+        <li>1 cucumber (sliced)</li>
+        <li>Soy sauce (for serving)</li>
+      </ul>
+    </div>
+
+    <!-- Preparation -->
+    <div class="preparation">
+      <h2>Preparation</h2>
+      <div class="step">
+        <h3>Step 1/6</h3>
+        <p>Rinse sushi rice until water runs clear, then cook according to package.</p>
+      </div>
+      <div class="step">
+        <h3>Step 2/6</h3>
+        <p>Mix rice vinegar, sugar, and salt. Fold into cooked rice.</p>
+      </div>
+      <div class="step">
+        <h3>Step 3/6</h3>
+        <p>Place nori on bamboo mat, spread rice evenly.</p>
+      </div>
+      <div class="step">
+        <h3>Step 4/6</h3>
+        <p>Add salmon and cucumber slices.</p>
+      </div>
+      <div class="step">
+        <h3>Step 5/6</h3>
+        <p>Roll tightly, then slice into 8 pieces.</p>
+      </div>
+      <div class="step">
+        <h3>Step 6/6</h3>
+        <p>Serve with soy sauce.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  var recipePages = {
+    //Malaysia
+    "laksa": "laksa-recipe.html",
+    "satay": "satay-recipe.html",
+    "roti canai": "roti-recipe.html",
+    "char kuey teow": "ckt-recipe.html",
+    "nasi lemak": "nasi-recipe.html",
+    "kuih seri muka": "kuih-recipe.html",
+    //Japan
+    "sushi": "sushi-recipe.html",
+    "ramen": "ramen-recipe.html",
+    "sashimi": "sashimi-recipe.html",
+    "mochi": "mochi-recipe.html",
+    "yakitori": "yakitori-recipe.html",
+    "onigiri":"onigiri-recipe.html",
+    //China
+    "dim sum":"dim-sum-recipe.html",
+    "dumplings":"dumplings-recipe.html",
+    "hot pot":"hot-pot-recipe.html",
+    "kung pao":"kung-pao-recipe.html",
+    "peking duck":"peking-duck-recipe.html",
+    "sweet sour pork":"sweet-sour-pork-recipe.html",
+    //Vietnam
+    "banh mi":"Banh-Mi-recipe.html",
+    "bun cha":"Bun Cha recipe.html",
+    "cha ca la vong":"Cha Ca La Vong recipe.html",
+    "pho cuon":"Pho Cuon recipe.html",
+    "xoi - vietnamese sticky rice":"Xoi - Vietnam Sticky Rice recipe.html",
+    "pho noodle":"Pho noodle.html",
+  };
+
+  var searchInput = document.getElementById("searchInput");
+  var suggestionsBox = document.getElementById("suggestions");
+  var searchContainer = document.querySelector(".search-container");
+
+  searchInput.addEventListener("input", showSuggestions);
+
+  function showSuggestions() {
+    var item = searchInput.value.toLowerCase().trim();
+    suggestionsBox.innerHTML = "";  
+    if (item == "") {
+      return;  
+    }
+
+    var foods = Object.keys(recipePages);
+
+    for (var i = 0; i < foods.length; i++) {
+      var food = foods[i];
+      if (food.indexOf(item) == 0) {  
+        suggestionsBox.innerHTML +=
+          "<div class='suggestion-item' onclick='toPage(\"" + food + "\")'>" +
+          food +
+          "</div>";
+      }
+    }
+  }
+
+  function toPage(food) {
+    window.location.href = recipePages[food];
+  }
+</script>
+
+</body>
+</html>

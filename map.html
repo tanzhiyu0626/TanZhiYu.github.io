@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Nom Nom Asia</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  header {
+  background-color: white;
+  padding: 10px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+
+.login-btn {
+  background-color: darkred;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  background: #f5f5f5;
+  padding: 8px 0;
+  width: 100%;
+}
+  .map-wrapper {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    margin-top:0; /* header space */
+  }
+
+  .map-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4000px;
+    height: 2000px;
+    display: flex;
+    flex-wrap: wrap;
+    cursor: grab;
+    user-select: none;
+    transform-origin: 0 0;
+  }
+
+  .map-container:active {
+    cursor: grabbing;
+  }
+
+  .map-image {
+    width: 2000px;
+    height: 1000px;
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .food-icon {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+  .ramen { top: 350px; left: 1750px; }
+  .sushi { top: 400px; left: 1700px; }
+  .onigiri { top: 350px; left: 1800px; }
+  .yakitori { top: 380px; left: 1730px; }
+  .mochi { top: 420px; left: 1750px; }
+  .sashimi { top: 380px; left: 1790px; }
+
+  /* Malaysia food coords */
+  .nasi { top: 550px; left: 1560px; }
+  .ckt { top: 590px; left: 1520px; }
+  .satay { top: 580px; left: 1575px; }
+  .roti  { top: 550px; left: 1530px; }
+  .laksa { top: 615px; left: 1575px; }
+  .kuih { top: 610px; left: 1535px; }
+
+  .pekingduck { top: 390px; left: 1600px; }
+  .sweetpork { top: 420px; left: 1475px; }
+  .hotpot { top: 400px; left: 1525px; }
+  .dimsum { top: 438px; left: 1550px; }
+  .dumplings { top: 440px; left: 1595px; }
+  .kungpao { top: 380px; left: 1490px; }
+
+  .banhmi { top: 480px; left: 1575px; }
+  .pho { top: 500px; left: 1600px; }
+  .buncha { top: 545px; left: 1590px; }
+  .chaca { top: 500px; left: 1560px; }
+  .phocuon { top: 520px; left: 1630px; }
+  .xoi { top: 550px; left: 1625px; }
+  
+</style>
+</head>
+<body>
+
+<header>
+  <div class="search">
+    <img src="search.png" alt="Search">
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search recipes or foods..." autocomplete="off">
+      <div id="suggestions" class="suggestions"></div>
+    </div>
+  </div>
+    <div class="center-logo">
+        <img src="logo.png" alt="Logo">
+    </div>
+    <a href="menu.html">
+        <button class="login-btn">Menu</button>
+    </a>
+
+    <nav>
+        <div class="dropdown">
+          <a href="#">Destinations ▾</a>
+          <div class="dropdown-content">
+            <a href="Malaysia.html">Malaysia</a>
+            <a href="Japan.html">Japan</a>
+            <a href="China.html">China</a>
+            <a href="Vietnam.html">Vietnam</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <a href="#">Recipes ▾</a>
+          <div class="dropdown-content">
+            <div class="dropdown-grid">
+              <div class="country-label">Malaysia</div>
+                <a href="laksa-recipe.html">Laksa</a>
+                <a href="satay-recipe.html">Satay</a>
+                <a href="roti-recipe.html">Roti Canai</a>
+                <a href="ckt-recipe.html">Char Kuey Teow</a>
+                <a href="nasi-recipe.html">Nasi Lemak</a>
+                <a href="kuih-recipe.html">Kuih Seri Muka</a>
+
+              <div class="country-label">Japan</div>
+                <a href="sushi-recipe.html">Sushi</a>
+                <a href="sashimi-recipe.html">Sasahmi</a>
+                <a href="yakitori-recipe.html">Yakitori</a>
+                <a href="mochi-recipe.html">Mochi</a>
+                <a href="onigiri-recipe.html">Onigiri</a>
+                <a href="ramen-recipe.html">Ramen</a>
+
+              <div class="country-label">China</div>
+                <a href="peking-duck-recipe.html">Pecking Duck</a>
+                <a href="kung-pao-recipe.html">Kung Pao Chicken</a>
+                <a href="sweet-sour-pork-recipe.html">Sweet & Sour Pork</a>
+                <a href="hot-pot-recipe.html">Hot Pot</a>
+                <a href="dim-sum-recipe.html">Dim Sum</a>
+                <a href="dumplings-recipe.html">Dumplings</a>
+              
+              <div class="country-label">Vietnam</div>
+                <a href="Cha Ca La Vong recipe.html">Cha Ca La Vong</a>
+                <a href="Bun Cha recipe.html">Bun Cha</a>
+                <a href="Pho Cuon recipe.html">Pho Coun</a>
+                <a href="Pho noodle.html">Pho noodle</a>
+                <a href="Xoi - Vietnam Sticky Rice recipe.html">Xoi</a>
+                <a href="Banh Mi recipe.html">Banh Mi</a>
+            </div>
+          </div>
+        </div>
+        <a href="map.html">Map</a>
+        <a href="Contact Us.html">Contact Us</a>
+        <a href="History Food.html">History Food</a>
+      </nav>
+</header>
+
+<div class="map-wrapper">
+  <div class="map-container" id="map">
+    <div style="position:relative">
+      <img src="world-map.png" alt="World Map" class="map-image">
+      <img src="ramen.jpg" alt="Ramen" class="food-icon ramen">
+      <img src="sushi.jpg" alt="Sushi" class="food-icon sushi">
+      <img src="onigiri.jpg" alt="Onigiri" class="food-icon onigiri">
+      <img src="yakitori.jpg" alt="Yakitori" class="food-icon yakitori">
+      <img src="mochi.jpg" alt="Mochi" class="food-icon mochi">
+      <img src="sashimi.jpg" alt="Sashimi" class="food-icon sashimi">
+
+      <img src="nasi.jpeg" alt="Nasi Lemak" class="food-icon nasi">
+      <img src="CKT.jpeg" alt="Char Kway Teow" class="food-icon ckt">
+      <img src="Satay.jpeg" alt="Satay" class="food-icon satay">
+      <img src="roti.jpeg" alt="Roti Canai" class="food-icon roti">
+      <img src="laksa.jpeg" alt="Laksa" class="food-icon laksa">
+      <img src="kuih.jpeg" alt="Kuih Seri Muka" class="food-icon kuih">
+
+      <img src="peking-duck.jpg" alt="Peking Duck" class="food-icon pekingduck">
+      <img src="sweet-sour-pork.jpg" alt="Sweet and Sour Pork" class="food-icon sweetpork">
+      <img src="hot-pot.jpg" alt="Hot Pot" class="food-icon hotpot">
+      <img src="dim-sum.jpg" alt="Dim Sum" class="food-icon dimsum">
+      <img src="dumplings.jpg" alt="Dumplings" class="food-icon dumplings">
+      <img src="kung-pao.jpg" alt="Kung Pao Chicken" class="food-icon kungpao">
+
+      <img src="Banh Mi.jpg" alt="Banh Mi" class="food-icon banhmi">
+      <img src="Pho noodle.jpg" alt="Pho Noodles" class="food-icon pho">
+      <img src="Bun Cha.jpg" alt="Bun Cha" class="food-icon buncha">
+      <img src="Cha Ca La Vong.jpg" alt="Cha Ca La Vong" class="food-icon chaca">
+      <img src="Pho Cuon.jpg" alt="Pho Cuon" class="food-icon phocuon">
+      <img src="Xoi - Vietnamese Sticky Rice.jpg" alt="Xoi" class="food-icon xoi">
+    </div>
+    <div style="position:relative">
+      <img src="world-map.png" alt="World Map Copy" class="map-image">
+      <img src="sushi.jpg" alt="Sushi" class="food-icon sushi">
+      <img src="onigiri.jpg" alt="Onigiri" class="food-icon onigiri">
+      <img src="yakitori.jpg" alt="Yakitori" class="food-icon yakitori">
+      <img src="mochi.jpg" alt="Mochi" class="food-icon mochi">
+      <img src="sashimi.jpg" alt="Sashimi" class="food-icon sashimi">
+
+      <img src="nasi.jpeg" alt="Nasi Lemak" class="food-icon nasi">
+      <img src="CKT.jpeg" alt="Char Kway Teow" class="food-icon ckt">
+      <img src="Satay.jpeg" alt="Satay" class="food-icon satay">
+      <img src="roti.jpeg" alt="Roti Canai" class="food-icon roti">
+      <img src="laksa.jpeg" alt="Laksa" class="food-icon laksa">
+      <img src="kuih.jpeg" alt="Kuih Seri Muka" class="food-icon kuih">
+
+      <img src="peking-duck.jpg" alt="Peking Duck" class="food-icon pekingduck">
+      <img src="sweet-sour-pork.jpg" alt="Sweet and Sour Pork" class="food-icon sweetpork">
+      <img src="hot-pot.jpg" alt="Hot Pot" class="food-icon hotpot">
+      <img src="dim-sum.jpg" alt="Dim Sum" class="food-icon dimsum">
+      <img src="dumplings.jpg" alt="Dumplings" class="food-icon dumplings">
+      <img src="kung-pao.jpg" alt="Kung Pao Chicken" class="food-icon kungpao">
+
+      <img src="Banh Mi.jpg" alt="Banh Mi" class="food-icon banhmi">
+      <img src="Pho noodle.jpg" alt="Pho Noodles" class="food-icon pho">
+      <img src="Bun Cha.jpg" alt="Bun Cha" class="food-icon buncha">
+      <img src="Cha Ca La Vong.jpg" alt="Cha Ca La Vong" class="food-icon chaca">
+      <img src="Pho Cuon.jpg" alt="Pho Cuon" class="food-icon phocuon">
+      <img src="Xoi - Vietnamese Sticky Rice.jpg" alt="Xoi" class="food-icon xoi">
+    </div>
+  </div>
+</div>
+
+<script>
+  const map = document.getElementById("map");
+  let isDragging = false;
+  let lastX, lastY;
+  let targetLeft = 0, targetTop = 0;
+  let currentLeft = 0, currentTop = 0;
+  const mapWidth = 2000;
+  const mapHeight = 1000;
+
+  let scale = 1;
+  const minScale = 1;
+  const maxScale = 4;
+
+  // Drag start
+  map.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    lastX = e.clientX;
+    lastY = e.clientY;
+    map.style.cursor = "grabbing";
+  });
+
+  document.addEventListener("mouseup", () => {
+    isDragging = false;
+    map.style.cursor = "grab";
+  });
+
+  document.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
+
+    const dx = e.clientX - lastX;
+    const dy = e.clientY - lastY;
+    lastX = e.clientX;
+    lastY = e.clientY;
+
+    targetLeft += dx;
+    targetTop += dy;
+
+    // Infinite horizontal looping
+    if (targetLeft <= -mapWidth) {
+      targetLeft += mapWidth;
+      currentLeft += mapWidth;
+    } else if (targetLeft >= 0) {
+      targetLeft -= mapWidth;
+      currentLeft -= mapWidth;
+    }
+
+    // Vertical clamp (only if zoomed in)
+    const maxVerticalOffset = -(mapHeight * scale - mapHeight);
+    if (scale === 1) {
+      targetTop = 0;
+    } else {
+      if (targetTop < maxVerticalOffset) targetTop = maxVerticalOffset;
+      if (targetTop > 0) targetTop = 0;
+    }
+  });
+
+  // Zoom with cursor focus
+  document.addEventListener("wheel", (e) => {
+    e.preventDefault();
+    const zoomIntensity = 0.1;
+    const rect = map.getBoundingClientRect();
+
+    // mouse position relative to map
+    const mouseX = e.clientX - rect.left - currentLeft;
+    const mouseY = e.clientY - rect.top - currentTop;
+
+    let zoom = Math.exp(-e.deltaY * zoomIntensity / 100);
+    let newScale = scale * zoom;
+
+    if (newScale < minScale) newScale = minScale;
+    if (newScale > maxScale) newScale = maxScale;
+
+    // adjust pan so zoom centers on mouse
+    targetLeft -= mouseX * (newScale / scale - 1);
+    targetTop -= mouseY * (newScale / scale - 1);
+
+    scale = newScale;
+  }, { passive: false });
+
+  // Animation loop
+  function animate() {
+    currentLeft += (targetLeft - currentLeft) * 0.15;
+    currentTop += (targetTop - currentTop) * 0.15;
+    map.style.transform = `translate3d(${currentLeft}px, ${currentTop}px, 0) scale(${scale})`;
+    requestAnimationFrame(animate);
+  }
+  animate();
+  
+</script>
+<script>
+  var recipePages = {
+    //Malaysia
+    "laksa": "laksa-recipe.html",
+    "satay": "satay-recipe.html",
+    "roti canai": "roti-recipe.html",
+    "char kuey teow": "ckt-recipe.html",
+    "nasi lemak": "nasi-recipe.html",
+    "kuih seri muka": "kuih-recipe.html",
+    //Japan
+    "sushi": "sushi-recipe.html",
+    "ramen": "ramen-recipe.html",
+    "sashimi": "sashimi-recipe.html",
+    "mochi": "mochi-recipe.html",
+    "yakitori": "yakitori-recipe.html",
+    "onigiri":"onigiri-recipe.html",
+    //China
+    "dim sum":"dim-sum-recipe.html",
+    "dumplings":"dumplings-recipe.html",
+    "hot pot":"hot-pot-recipe.html",
+    "kung pao":"kung-pao-recipe.html",
+    "peking duck":"peking-duck-recipe.html",
+    "sweet sour pork":"sweet-sour-pork-recipe.html",
+    //Vietnam
+    "banh mi":"Banh-Mi-recipe.html",
+    "bun cha":"Bun Cha recipe.html",
+    "cha ca la vong":"Cha Ca La Vong recipe.html",
+    "pho cuon":"Pho Cuon recipe.html",
+    "xoi - vietnamese sticky rice":"Xoi - Vietnam Sticky Rice recipe.html",
+    "pho noodle":"Pho noodle.html",
+  };
+
+  var searchInput = document.getElementById("searchInput");
+  var suggestionsBox = document.getElementById("suggestions");
+  var searchContainer = document.querySelector(".search-container");
+
+  searchInput.addEventListener("input", showSuggestions);
+
+  function showSuggestions() {
+    var item = searchInput.value.toLowerCase().trim();
+    suggestionsBox.innerHTML = "";  
+    if (item == "") {
+      return;  
+    }
+
+    var foods = Object.keys(recipePages);
+
+    for (var i = 0; i < foods.length; i++) {
+      var food = foods[i];
+      if (food.indexOf(item) == 0) {  
+        suggestionsBox.innerHTML +=
+          "<div class='suggestion-item' onclick='toPage(\"" + food + "\")'>" +
+          food +
+          "</div>";
+      }
+    }
+  }
+
+  function toPage(food) {
+    window.location.href = recipePages[food];
+  }
+</script>
+
+</body>
+</html>

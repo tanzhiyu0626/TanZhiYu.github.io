@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NomNomAsia - Search History</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      background-color: #f5f5f5;
+    }
+    header {
+      background-color: white;
+      padding: 15px 30px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    /* Logo styling - only image, no text */
+    .logo {
+      width: 60px; /* Adjust size as needed */
+      height: auto;
+    }
+    nav a {
+      margin: 0 12px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ff7a00;
+    }
+    nav a.active {
+      color: #ff7a00;
+      font-weight: bold;
+    }
+    .history-container {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    .history-title {
+      color: #333;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #ff7a00;
+    }
+    .history-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .history-item {
+      padding: 10px 20px;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+      color: #333;
+    }
+    .history-item:hover {
+      background-color: #ff7a00;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .empty-history {
+      text-align: center;
+      padding: 40px;
+      background-color: white;
+      border-radius: 8px;
+      color: #666;
+      border: 1px dashed #ddd;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <!-- Only logo image, no text title -->
+    <img src="logo.png" alt="NomNomAsia Logo" class="logo">
+    <nav>
+      <a href="menu.html">Home</a>
+      <a href="destinations.html">Destinations</a>
+      <a href="recipes.html">Recipes</a>
+      <a href="map.html">Map</a>
+      <a href="History Food.html" class="active">History Food</a>
+    </nav>
+  </header>
+
+  <div class="history-container">
+    <h2 class="history-title">Your Search History</h2>
+    <div class="history-items" id="historyList"></div>
+  </div>
+
+  <script>
+    // Recipe mapping (keep synchronized with main page)
+    const recipePages = {
+      // Malaysia
+      "laksa": "laksa-recipe.html",
+      "satay": "satay-recipe.html",
+      "roti canai": "roti-recipe.html",
+      "char kuey teow": "ckt-recipe.html",
+      "nasi lemak": "nasi-recipe.html",
+      "kuih seri muka": "kuih-recipe.html",
+      // Japan
+      "sushi": "sushi-recipe.html",
+      "ramen": "ramen-recipe.html",
+      "sashimi": "sashimi-recipe.html",
+      "mochi": "mochi-recipe.html",
+      "yakitori": "yakitori-recipe.html",
+      "onigiri": "onigiri-recipe.html",
+      // China
+      "dim sum": "dim-sum-recipe.html",
+      "dumplings": "dumplings-recipe.html",
+      "hot pot": "hot-pot-recipe.html",
+      "kung pao": "kung-pao-recipe.html",
+      "peking duck": "peking-duck-recipe.html",
+      "sweet sour pork": "sweet-sour-pork-recipe.html",
+      // Vietnam
+      "banh mi": "Banh-Mi-recipe.html",
+      "bun cha": "Bun-Cha-recipe.html",
+      "cha ca la vong": "Cha-Ca-La-Vong-recipe.html",
+      "pho cuon": "Pho-Cuon-recipe.html",
+      "xoi - vietnamese sticky rice": "Xoi-Vietnam-Sticky-Rice-recipe.html",
+      "pho noodle": "Pho-noodle.html"
+    };
+
+    // Load search history from localStorage
+    const searchHistory = JSON.parse(localStorage.getItem("foodSearchHistory")) || [];
+
+    // Function to display search history
+    function displayHistory() {
+      const historyList = document.getElementById("historyList");
+      historyList.innerHTML = "";
+
+      // Show empty state if no history exists
+      if (searchHistory.length === 0) {
+        const emptyDiv = document.createElement("div");
+        emptyDiv.className = "empty-history";
+        emptyDiv.innerHTML = "You don't have any search history yet.<br>Search for your favorite Asian dishes on the home page!";
+        historyList.appendChild(emptyDiv);
+        return;
+      }
+
+      // Create clickable history items
+      searchHistory.forEach(item => {
+        const historyLink = document.createElement("a");
+        historyLink.className = "history-item";
+        historyLink.textContent = item;
+
+        // Set link behavior based on recipe existence
+        if (recipePages[item.toLowerCase()]) {
+          historyLink.href = recipePages[item.toLowerCase()];
+        } else {
+          historyLink.href = "javascript:void(0);";
+          historyLink.onclick = () => alert(`No recipe found for "${item}"`);
+        }
+
+        historyList.appendChild(historyLink);
+      });
+    }
+
+    // Display history when page loads
+    displayHistory();
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <title>Traditional Chinese Dishes</title>
+  <!-- Link external CSS file -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<style> 
+
+.banner {
+      width: 100%;
+      height: 300px;
+      background: url('china-banner.jpg') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 36px;
+      font-weight: bold;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+    }</style>
+ 
+<body>
+
+<header>
+  <div class="search">
+    <img src="search.png" alt="Search">
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search recipes or foods..." autocomplete="off">
+      <div id="suggestions" class="suggestions"></div>
+    </div>
+  </div>
+    <div class="center-logo">
+        <img src="logo.png" alt="Logo">
+    </div>
+    <a href="menu.html" class="login-btn">Menu</a>
+      <nav>
+        <div class="dropdown">
+          <a href="#">Destinations ▾</a>
+          <div class="dropdown-content">
+            <a href="Malaysia.html">Malaysia</a>
+            <a href="Japan.html">Japan</a>
+            <a href="China.html">China</a>
+            <a href="Vietnam.html">Vietnam</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <a href="#">Recipes ▾</a>
+          <div class="dropdown-content">
+            <div class="dropdown-grid">
+              <div class="country-label">Malaysia</div>
+                <a href="laksa-recipe.html">Laksa</a>
+                <a href="satay-recipe.html">Satay</a>
+                <a href="roti-recipe.html">Roti Canai</a>
+                <a href="ckt-recipe.html">Char Kuey Teow</a>
+                <a href="nasi-recipe.html">Nasi Lemak</a>
+                <a href="kuih-recipe.html">Kuih Seri Muka</a>
+
+              <div class="country-label">Japan</div>
+                <a href="sushi-recipe.html">Sushi</a>
+                <a href="sashimi-recipe.html">Sasahmi</a>
+                <a href="yakitori-recipe.html">Yakitori</a>
+                <a href="mochi-recipe.html">Mochi</a>
+                <a href="onigiri-recipe.html">Onigiri</a>
+                <a href="ramen-recipe.html">Ramen</a>
+
+              <div class="country-label">China</div>
+                <a href="peking-duck-recipe.html">Pecking Duck</a>
+                <a href="kung-pao-recipe.html">Kung Pao Chicken</a>
+                <a href="sweet-sour-pork-recipe.html">Sweet & Sour Pork</a>
+                <a href="hot-pot-recipe.html">Hot Pot</a>
+                <a href="dim-sum-recipe.html">Dim Sum</a>
+                <a href="dumplings-recipe.html">Dumplings</a>
+              
+              <div class="country-label">Vietnam</div>
+                <a href="Cha Ca La Vong recipe.html">Cha Ca La Vong</a>
+                <a href="Bun Cha recipe.html">Bun Cha</a>
+                <a href="Pho Cuon recipe.html">Pho Coun</a>
+                <a href="Pho noodle.html">Pho noodle</a>
+                <a href="Xoi - Vietnam Sticky Rice recipe.html">Xoi</a>
+                <a href="Banh Mi recipe.html">Banh Mi</a>
+            </div>
+          </div>
+        </div>
+        <a href="map.html">Map</a>
+        <a href="Contact Us.html">Contact Us</a>
+        <a href="History Food.html">History Food</a>
+      </nav>
+
+  <div class="banner">
+    Experience China’s Traditional Foods
+  </div>
+</header>
+
+<!-- Food Section -->
+<section class="food-section">
+  <h2>Most Popular Chinese Dishes</h2>
+  <div class="food-grid">
+    <div class="food-card">
+      <img src="peking-duck.jpg" alt="Peking Duck">
+      <div class="content">
+        <h3>Peking Roasted Duck</h3>
+        <p>Famous Beijing dish with crispy skin, served with pancakes and sweet sauce.</p>
+      </div>
+      <a href="peking-duck-recipe.html" class="view-link">View Recipe</a>
+    </div>
+    <div class="food-card">
+      <img src="kung-pao.jpg" alt="Kung Pao Chicken">
+      <div class="content">
+        <h3>Kung Pao Chicken</h3>
+        <p>A spicy Sichuan stir-fry made with chicken, peanuts, and chili peppers.</p>
+      </div>
+      <a href="kung-pao-recipe.html" class="view-link">View Recipe</a>
+    </div>
+    <div class="food-card">
+      <img src="sweet-sour-pork.jpg" alt="Sweet and Sour Pork">
+      <div class="content">
+        <h3>Sweet and Sour Pork</h3>
+        <p>Crispy pork tossed in a bright sweet and tangy sauce.</p>
+      </div>
+      <a href="sweet-sour-pork-recipe.html" class="view-link">View Recipe</a>
+    </div>
+    <div class="food-card">
+      <img src="hot-pot.jpg" alt="Hot Pot">
+      <div class="content">
+        <h3>Hot Pot</h3>
+        <p>A communal meal where meat and vegetables are cooked in simmering broth.</p>
+      </div>
+      <a href="hot-pot-recipe.html" class="view-link">View Recipe</a>
+    </div>
+    <div class="food-card">
+      <img src="dim-sum.jpg" alt="Dim Sum">
+      <div class="content">
+        <h3>Dim Sum</h3>
+        <p>A Cantonese tradition with small dishes like dumplings, buns, and rolls.</p>
+      </div>
+      <a href="dim-sum-recipe.html" class="view-link">View Recipe</a>
+    </div>
+    <div class="food-card">
+      <img src="dumplings.jpg" alt="Dumplings">
+      <div class="content">
+        <h3>Dumplings (Jiaozi)</h3>
+        <p>North Chinese staple of dough filled with meat and vegetables, boiled or fried.</p>
+      </div>
+      <a href="dumplings-recipe.html" class="view-link">View Recipe</a>
+    </div>
+  </div>
+</section>
+<script>
+  var recipePages = {
+    //Malaysia
+    "laksa": "laksa-recipe.html",
+    "satay": "satay-recipe.html",
+    "roti canai": "roti-recipe.html",
+    "char kuey teow": "ckt-recipe.html",
+    "nasi lemak": "nasi-recipe.html",
+    "kuih seri muka": "kuih-recipe.html",
+    //Japan
+    "sushi": "sushi-recipe.html",
+    "ramen": "ramen-recipe.html",
+    "sashimi": "sashimi-recipe.html",
+    "mochi": "mochi-recipe.html",
+    "yakitori": "yakitori-recipe.html",
+    "onigiri":"onigiri-recipe.html",
+    //China
+    "dim sum":"dim-sum-recipe.html",
+    "dumplings":"dumplings-recipe.html",
+    "hot pot":"hot-pot-recipe.html",
+    "kung pao":"kung-pao-recipe.html",
+    "peking duck":"peking-duck-recipe.html",
+    "sweet sour pork":"sweet-sour-pork-recipe.html",
+    //Vietnam
+    "banh mi":"Banh-Mi-recipe.html",
+    "bun cha":"Bun Cha recipe.html",
+    "cha ca la vong":"Cha Ca La Vong recipe.html",
+    "pho cuon":"Pho Cuon recipe.html",
+    "xoi - vietnamese sticky rice":"Xoi - Vietnam Sticky Rice recipe.html",
+    "pho noodle":"Pho noodle.html",
+  };
+
+  var searchInput = document.getElementById("searchInput");
+  var suggestionsBox = document.getElementById("suggestions");
+  var searchContainer = document.querySelector(".search-container");
+
+  searchInput.addEventListener("input", showSuggestions);
+
+  function showSuggestions() {
+    var item = searchInput.value.toLowerCase().trim();
+    suggestionsBox.innerHTML = "";  
+    if (item == "") {
+      return;  
+    }
+
+    var foods = Object.keys(recipePages);
+
+    for (var i = 0; i < foods.length; i++) {
+      var food = foods[i];
+      if (food.indexOf(item) == 0) {  
+        suggestionsBox.innerHTML +=
+          "<div class='suggestion-item' onclick='toPage(\"" + food + "\")'>" +
+          food +
+          "</div>";
+      }
+    }
+  }
+
+  function toPage(food) {
+    window.location.href = recipePages[food];
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      height: 100vh; 
+      display: flex;
+      justify-content: center; 
+      align-items: center;    
+    }
+    form {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 450px;
+      margin: auto;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 15px;
+      color: #8B0000;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    input, textarea, select {
+      width: 95%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .submit-btn {
+      background: #8B0000;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 12px;
+      width: 100%;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 15px;
+    }
+    .submit-btn:hover { background: #600000; }
+
+    /* Social Buttons */
+    .social-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+    }
+    .social {
+      flex: 1;
+      text-align: center;
+      padding: 10px;
+      margin: 0 5px;
+      border-radius: 5px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .instagram { background: #E4405F; }
+    .instagram:hover { background: #c32f50; }
+
+    .facebook { background: #3b5998; }
+    .facebook:hover { background: #2d4373; }
+
+    .whatsapp { background: #25D366; }
+    .whatsapp:hover { background: #1DA851; }
+
+    #message {
+      text-align: center;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <form id="contactForm">
+    <h2>Contact Us</h2>
+
+    <label>Name:</label>
+    <input type="text" id="name" placeholder="Enter your name" required>
+
+    <label>Email:</label>
+    <input type="email" id="email" placeholder="Enter your email" required>
+
+    <label>Reason of contacting:</label>
+    <select id="reason" required>
+      <option value="">-- Select Reason --</option>
+      <option value="support">Support</option>
+      <option value="feedback">Feedback</option>
+      <option value="business">Business</option>
+    </select>
+
+    <label>Phone Number:</label>
+    <input type="text" id="phone" placeholder="e.g. +60123456789" required>
+
+    <!-- Submit Button -->
+    <button type="submit" class="submit-btn">Submit</button>
+
+    <!-- Social Media Buttons -->
+    <div class="social-buttons">
+      <a href="https://www.instagram.com/" target="_blank" class="social instagram">Instagram</a>
+      <a href="https://www.facebook.com/" target="_blank" class="social facebook">Facebook</a>
+      <a href="https://wa.me/60123456789" target="_blank" class="social whatsapp">WhatsApp</a>
+    </div>
+  </form>
+
+  <div id="message"></div>
+
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      let name   = document.getElementById("name").value;
+      let email  = document.getElementById("email").value;
+      let reason = document.getElementById("reason").value;
+      let phone  = document.getElementById("phone").value;
+
+      // Save in LocalStorage
+      let data = { name, email, reason, phone };
+      localStorage.setItem("contactData", JSON.stringify(data));
+
+      document.getElementById("message").innerText =
+        "✅ Thank you, " + name + ". Your message has been saved!";
+      
+      document.getElementById("contactForm").reset();
+    });
+  </script>
+</body>
+</html>

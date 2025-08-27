@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: url("loginbg.jpg") no-repeat center center fixed;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .container {
+        background: rgba(255, 255, 255, 0.9); /* transparent for readability */
+        padding: 30px 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        text-align: center;
+        width: 320px;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+        color: darkred;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 14px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 12px;
+        margin-top: 10px;
+        border: none;
+        border-radius: 25px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .login-btn {
+        background-color: darkred;
+        color: white;
+    }
+    .login-btn:hover {
+        background-color: #a30000;
+    }
+
+    .signup-btn {
+        background-color: #555;
+        color: white;
+    }
+    .signup-btn:hover {
+        background-color: #333;
+    }
+
+    .back-link {
+        margin-top: 15px;
+        display: block;
+        font-size: 14px;
+        color: #333;
+        text-decoration: none;
+    }
+    .back-link:hover {
+        text-decoration: underline;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Enter Username" required>
+            <input type="password" id="password" placeholder="Enter Password" required>
+            <button type="submit" class="btn login-btn">Login</button>
+        </form>
+        <a href="signup.html" class="back-link">Don’t have an account? Sign up here</a>
+        <p id="message" style="color:red;"></p>
+    </div>
+
+<script>
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const message = document.getElementById("message");
+
+    let users = JSON.parse(localStorage.getItem("users")) || {};
+
+    if(users[username] && users[username] === password){
+        document.cookie = "loggedInUser=" + username + "; path=/";
+        window.location.href = "menu.html";
+    } else {
+        message.textContent = "Invalid username or password. Please try again.";
+    }
+});
+</script>
+</body>
+</html>

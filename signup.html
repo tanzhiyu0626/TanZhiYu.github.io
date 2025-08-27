@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sign Up</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: url("signupbg.jpg") no-repeat center center fixed;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .container {
+        background: rgba(255, 255, 255, 0.9); /* slightly transparent for readability */
+        padding: 30px 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        text-align: center;
+        width: 320px;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+        color: darkred;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 14px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 12px;
+        margin-top: 10px;
+        border: none;
+        border-radius: 25px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .signup-btn {
+        background-color: darkred;
+        color: white;
+    }
+    .signup-btn:hover {
+        background-color: #a30000;
+    }
+
+    .back-link {
+        margin-top: 15px;
+        display: block;
+        font-size: 14px;
+        color: #333;
+        text-decoration: none;
+    }
+    .back-link:hover {
+        text-decoration: underline;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h2>Sign Up</h2>
+        <form id="signupForm">
+            <input type="text" id="newUsername" placeholder="Enter Username" required>
+            <input type="password" id="newPassword" placeholder="Enter Password (min 8 chars)" required>
+            <button type="submit" class="btn signup-btn">Sign Up</button>
+        </form>
+        <a href="login.html" class="back-link">Already have an account? Login here</a>
+        <p id="message" style="color:red;"></p>
+    </div>
+
+<script>
+document.getElementById("signupForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const username = document.getElementById("newUsername").value.trim();
+    const password = document.getElementById("newPassword").value.trim();
+    const message = document.getElementById("message");
+
+    if(password.length < 8){
+        message.textContent = "Password must be at least 8 characters.";
+        return;
+    }
+
+    let users = JSON.parse(localStorage.getItem("users")) || {};
+
+    if(users[username]){
+        message.textContent = "Username already exists.";
+    } else {
+        users[username] = password;
+        localStorage.setItem("users", JSON.stringify(users));
+        alert("Signup successful! Please login.");
+        window.location.href = "login.html";
+    }
+});
+</script>
+</body>
+</html>
